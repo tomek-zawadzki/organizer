@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Organizer</title>
+
+    <script
+      src="https://kit.fontawesome.com/aee95fd16a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer type="module" src="/src/js/app.js"></script>
+    <link rel="stylesheet" href="/src/css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="app">
+      <section class="quotes">
+        <h1 class="quotes__title">Quote for today</h1>
+        <p class="quotes__text"></p>
+        <p class="quotes__author">Tomasz Zawadzki</p>
+        <button class="quotes__change-btn">Change Quote</button>
+      </section>
+
+      <div class="grid">
+        <section class="menu-close">
+          <h2 class="menu__title">Menu</h2>
+          <ul class="menu__list">
+            <div>
+              <li class="menu__list--item item-tasks">
+                <p class="menu__list--btn">
+                  <i class="fa-solid fa-list-check"></i>
+                </p>
+                <span class="menu__list--text hidden">Tasks</span>
+              </li>
+            </div>
+            <li class="menu__list--item item-notes">
+              <p class="menu__list--btn">
+                <i class="fa-regular fa-note-sticky"></i>
+              </p>
+              <span class="menu__list--text hidden">Notes</span>
+            </li>
+            <li class="menu__list--item item-wallet">
+              <p class="menu__list--btn"><i class="fa-solid fa-wallet"></i></p>
+              <span class="menu__list--text hidden">Wallet</span>
+            </li>
+            <li class="menu__list--item item-calendar">
+              <p class="menu__list--btn">
+                <i class="fa-solid fa-calendar-days"></i>
+              </p>
+              <span class="menu__list--text hidden">Calendar</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card tasks hidden">
+          <h2 class="card__title tasks__title">Tasks</h2>
+          <div class="tasks__input--box">
+            <input
+              type="text"
+              class="tasks__input"
+              placeholder="enter new task"
+            />
+            <button class="tasks__add-btn">Add +</button>
+          </div>
+
+          <div class="new-tasks-box"></div>
+
+          <div class="tasks__edit">
+            <label class="tasks__edit--label" for="edit-task"
+              >Edit your task:</label
+            >
+            <input
+              class="tasks__edit--input"
+              id="edit-task"
+              type="text"
+              placeholder="edit task..."
+            />
+            <div class="tasks__edit--buttons">
+              <button class="edit-btn edit-btn__accept">Accept</button>
+              <button class="edit-btn edit-btn__close">Close</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card notes active-card">
+          <h2 class="card__title notes__title">Notes</h2>
+          <div action="" class="notes__form">
+            <input
+              class="form__note-title"
+              type="text"
+              placeholder="enter note title"
+            />
+            <textarea
+              class="form__textarea"
+              name="textarea"
+              id="textarea"
+              cols="30"
+              rows="10"
+              placeholder="write your note..."
+            ></textarea>
+            <button class="form__accept-btn">Add note</button>
+          </div>
+          <div class="new-notes-box">
+            <!-- <div class="notes__new-note">
+              <p class="notes__new-note--title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              </p>
+              <div class="notes__new-note--buttons">
+                <button class="note__new-note--edit-btn note__new-note--btn">
+                  edit
+                </button>
+                <button class="note__new-note--trash-btn note__new-note--btn">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="note-edit hidden">
+            <input class="note-edit__title" />
+            <textarea class="note-edit__content"> </textarea>
+            <div class="note-edit__buttons tasks__edit--buttons">
+              <button class="note-edit__btn note-edit__btn--accept">
+                Accept
+              </button>
+              <button class="note-edit__btn note-edit__btn--close">
+                Close
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card wallet hidden">
+          <h2 class="card__title wallet__title">Your Wallet</h2>
+
+          <div class="wallet__buttons">
+            <button class="add-transaction-btn">Add transaction</button>
+          </div>
+          <div class="wallet__summary">
+            <div class="summary__expenses">
+              <h3 class="summary__expenses--title">Expenses:</h3>
+              <div class="expenses__list">
+                <p class="expenses__list--item">
+                  Course <span class="expenses__list--value">50</span>
+                </p>
+                <p class="expenses__list--item">
+                  Cola <span class="expenses__list--value">50</span>
+                </p>
+                <p class="expenses__list--item">
+                  Netflix <span class="expenses__list--value">50</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="summary__incomes">
+              <h3 class="summary__incomes--title">Incomes:</h3>
+              <div class="incomes__list">
+                <p class="icomes__list--item">
+                  Salary <span class="expenses__list--value">50</span>
+                </p>
+                <p class="icomes__list--item">
+                  revenue from Pati
+                  <span class="expenses__list--value">50</span>
+                </p>
+                <p class="icomse__list--item">
+                  Crypto <span class="expenses__list--value">50</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="wallet__new-transaction">
+            <h2 class="new-transaction__title">Add new transaction</h2>
+            <label for="name">Name </label>
+            <input
+              type="text"
+              class="expenses__new-expenses"
+              id="name"
+              placeholder="enter transaction name..."
+            />
+            <label for="value">Value </label>
+            <input
+              type="number"
+              class="expenses__new-expenses"
+              id="value"
+              placeholder="enter transaction value..."
+            />
+            <label for="type">Type</label>
+            <select id="type">
+              <option value="expense" selected>expense</option>
+              <option value="income">income</option>
+            </select>
+            <div class="new-transactions__buttons">
+              <button
+                class="new-transactions__buttons--save new-transactions__btn"
+              >
+                Save
+              </button>
+              <button
+                class="new-transactions__buttons--cancel new-transactions__btn"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card calendar hidden">
+          <h2 class="calendar__title">Calendar</h2>
+          <i class="fa-solid fa-calendar-days"></i>
+          <div id="calendar"></div>
+        </section>
+
+        <section class="today">
+          <h2 class="today__title">Today</h2>
+          <div class="today__date">
+            <p class="today__date--day">ti bedzie data</p>
+            <p class="today__date--day-name">ti bedzie data</p>
+          </div>
+
+          <div class="weather">
+            <img
+              class="weather__img"
+              src="http://openweathermap.org/img/wn/04n@2x.png"
+              alt="picture of the current weather"
+            />
+            <p class="weather__temp">0</p>
+            <div class="weather__details">
+              <img
+                class="icon barometer"
+                src="../assets/svg/wi-barometer.svg"
+                alt="pressure icon"
+              />
+              <p class="weather__pressure"></p>
+            </div>
+            <div class="weather__details">
+              <img
+                class="icon"
+                src="../assets/svg/wi-humidity.svg"
+                alt="humidity icon"
+              />
+              <p class="weather__humidity"></p>
+            </div>
+            <div class="weather__sun">
+              <div class="sunrise">
+                <img
+                  class="sunrise__img"
+                  src="../assets/svg/wi-sunrise.svg"
+                  alt="sunrise"
+                />
+                <p class="sunrise__text"></p>
+              </div>
+              <div class="sunset">
+                <img
+                  class="sunset__img"
+                  src="../assets/svg/wi-sunset.svg"
+                  alt="sunset"
+                />
+                <p class="sunset__text"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+
+<!-- <div class="tasks__new-task"> -->
+<!-- <p class="tasks__new-task--text">do something with yourself</p>
+      <div class="tasks__new-task--buttons">
+        <button class="tasks__new-task--accept-btn tasks__new-task--btn">
+          <i class="fa-solid fa-check"></i>
+        </button>
+        <button class="tasks__new-task--accept-btn tasks__new-task--btn">
+          edit
+        </button>
+        <button class="tasks__new-task--trash-btn tasks__new-task--btn">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div> -->
+<!-- </div> -->
