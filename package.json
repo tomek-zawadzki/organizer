@@ -1,0 +1,14 @@
+{
+  "name": "organizer",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}
