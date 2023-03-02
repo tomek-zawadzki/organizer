@@ -359,3 +359,21 @@ const showWeather = () => {
     );
 };
 showWeather();
+
+// WALLET SECTION
+const addTrnasactionBtn = document.querySelector(".add-transaction-btn");
+const newTransactionWindow = document.querySelector(".wallet__new-transaction");
+const closeNewTransactionBtn = document.querySelector(
+  ".new-transactions__buttons--cancel"
+);
+
+const openNewTransactionWindow = () => {
+  newTransactionWindow.style.display = "flex";
+};
+
+const closeNewTransactionWindow = () => {
+  newTransactionWindow.style.display = "none";
+};
+
+addTrnasactionBtn.addEventListener("click", openNewTransactionWindow);
+closeNewTransactionBtn.addEventListener("click", closeNewTransactionWindow);
