@@ -366,6 +366,16 @@ const newTransactionWindow = document.querySelector(".wallet__new-transaction");
 const closeNewTransactionBtn = document.querySelector(
   ".new-transactions__buttons--cancel"
 );
+const saveeNewTransactionBtn = document.querySelector(
+  ".new-transactions__buttons--save"
+);
+const newTransactionType = document.querySelector("#type");
+const newTransactionTitleInput = document.querySelector("#name");
+const newTransactionValueInput = document.querySelector("#value");
+const expensesList = document.querySelector(".expenses__list");
+const incomesList = document.querySelector(".incomes__list");
+
+let newTransactionElement;
 
 const openNewTransactionWindow = () => {
   newTransactionWindow.style.display = "flex";
@@ -375,5 +385,35 @@ const closeNewTransactionWindow = () => {
   newTransactionWindow.style.display = "none";
 };
 
+const addNewTransaction = () => {
+  if (newTransactionType.value === "expense") {
+    createTransaction();
+    expensesList.appendChild(newTransactionElement);
+  }
+
+  if (newTransactionType.value === "income") {
+    createTransaction();
+    incomesList.appendChild(newTransactionElement);
+  }
+
+  newTransactionTitleInput.value = "";
+  newTransactionValueInput.value = "";
+
+  closeNewTransactionWindow();
+};
+
+const createTransaction = () => {
+  newTransactionElement = document.createElement("li");
+  newTransactionElement.classList.add("expenses__list--item");
+  newTransactionElement.innerHTML = newTransactionTitleInput.value;
+
+  const newTransactionValue = document.createElement("span");
+  newTransactionValue.classList.add("new-transaction__span");
+  newTransactionValue.innerHTML = `${newTransactionValueInput.value} zł`;
+
+  newTransactionElement.appendChild(newTransactionValue);
+};
+
 addTrnasactionBtn.addEventListener("click", openNewTransactionWindow);
+saveeNewTransactionBtn.addEventListener("click", addNewTransaction);
 closeNewTransactionBtn.addEventListener("click", closeNewTransactionWindow);

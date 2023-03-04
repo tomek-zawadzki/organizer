@@ -473,6 +473,13 @@ body {
   margin: 0;
 }
 
+.expenses__list--item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+}
+
 .wallet__new-transaction {
   position: absolute;
   display: none;
@@ -525,6 +532,10 @@ body {
   width: 8rem;
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
+}
+
+.new-transaction__span {
+  size: 1rem;
 }
 
 /* TODAY SECTION  */
