@@ -603,6 +603,10 @@ body {
   margin: 0;
 }
 
+.weather__city {
+  font-size: 2rem;
+}
+
 .weather__pressure,
 .weather__humidity {
   font-size: 1.8rem;

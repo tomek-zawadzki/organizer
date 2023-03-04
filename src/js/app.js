@@ -312,6 +312,7 @@ const sunrise = document.querySelector(".sunrise__text");
 const weatherIcon = document.querySelector(".weather__img");
 const weatherPressure = document.querySelector(".weather__pressure");
 const weatherHumidity = document.querySelector(".weather__humidity");
+const weatherCity = document.querySelector(".weather__city");
 const weatherBox = document.querySelector(".weather");
 
 // let getDate = new Date().toDateString();
@@ -335,6 +336,7 @@ const getWeatherData = async (lat, long) => {
     sunset.textContent = `Sunset: ${new Date(
       data.sys.sunset * 1000
     ).toLocaleTimeString("default")}`;
+    weatherCity.innerHTML = data.name;
     weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     weatherPressure.textContent = `${data.main.pressure} hPa`;
     weatherHumidity.textContent = `${data.main.humidity} %`;
