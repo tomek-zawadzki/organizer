@@ -457,6 +457,11 @@ body {
   width: 100%;
 }
 
+.wallet__balance {
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
 .summary__expenses,
 .summary__incomes {
   background-color: #555555;
