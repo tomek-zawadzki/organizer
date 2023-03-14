@@ -1,3 +1,5 @@
+import { validationTekst } from "./validation";
+
 const taskInput = document.querySelector(".tasks__input");
 
 export const taskBox = document.querySelector(".new-tasks-box");
@@ -24,7 +26,7 @@ export const addNewTask = () => {
 
     createNewTaskBtns();
   } else {
-    console.log("wprowadz tekst");
+    validationTekst("task");
   }
 
   taskInput.value = "";

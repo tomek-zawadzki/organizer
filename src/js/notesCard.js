@@ -1,3 +1,5 @@
+import { validationTekst } from "./validation";
+
 const noteTitle = document.querySelector(".form__note-title");
 const noteContent = document.querySelector(".form__textarea");
 const editNotePanel = document.querySelector(".note-edit");
@@ -33,7 +35,7 @@ export const addNewNote = () => {
     notePlace.appendChild(newNoteContent);
     createNewNoteBtns();
   } else {
-    console.log("wprowadz tekst");
+    validationTekst("note title");
   }
 
   noteTitle.value = "";
@@ -48,7 +50,7 @@ const createNewNoteBtns = () => {
   const editNoteBtn = document.createElement("button");
   editNoteBtn.classList.add("note__new-note--edit-btn");
   editNoteBtn.classList.add("note__new-note--btn");
-  editNoteBtn.innerHTML = "edit";
+  editNoteBtn.innerHTML = "show";
 
   const deleteNoteBtn = document.createElement("button");
   deleteNoteBtn.classList.add("note__new-note--trash-btn");

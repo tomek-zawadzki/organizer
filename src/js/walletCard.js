@@ -1,3 +1,5 @@
+import { validationTekst } from "./validation";
+
 const newTransactionWindow = document.querySelector(".wallet__new-transaction");
 const newTransactionType = document.querySelector("#type");
 const newTransactionTitleInput = document.querySelector("#name");
@@ -17,28 +19,35 @@ export const closeNewTransactionWindow = () => {
 };
 
 export const addNewTransaction = () => {
-  if (newTransactionType.value === "expense") {
-    createTransaction();
-    expensesList.appendChild(newTransactionElement);
+  if (
+    newTransactionTitleInput.value !== "" &&
+    newTransactionValueInput.value !== ""
+  ) {
+    if (newTransactionType.value === "expense") {
+      createTransaction();
+      expensesList.appendChild(newTransactionElement);
 
-    walletBalanceValue.textContent =
-      parseFloat(walletBalanceValue.textContent) -
-      parseFloat(newTransactionValueInput.value);
+      walletBalanceValue.textContent =
+        parseFloat(walletBalanceValue.textContent) -
+        parseFloat(newTransactionValueInput.value);
+    }
+
+    if (newTransactionType.value === "income") {
+      createTransaction();
+      incomesList.appendChild(newTransactionElement);
+
+      walletBalanceValue.textContent =
+        parseFloat(walletBalanceValue.textContent) +
+        parseFloat(newTransactionValueInput.value);
+    }
+
+    newTransactionTitleInput.value = "";
+    newTransactionValueInput.value = "";
+
+    closeNewTransactionWindow();
+  } else {
+    validationTekst("title or value");
   }
-
-  if (newTransactionType.value === "income") {
-    createTransaction();
-    incomesList.appendChild(newTransactionElement);
-
-    walletBalanceValue.textContent =
-      parseFloat(walletBalanceValue.textContent) +
-      parseFloat(newTransactionValueInput.value);
-  }
-
-  newTransactionTitleInput.value = "";
-  newTransactionValueInput.value = "";
-
-  closeNewTransactionWindow();
 };
 
 const createTransaction = () => {
